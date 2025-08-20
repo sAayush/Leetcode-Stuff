@@ -14,9 +14,10 @@ class Solution:
                 if matrix[i][j] == 1:
                     dp[i][j] = 1
                     if i > 0 and j > 0:
-                        # this line calculates the size of the square submatrix by taking the minimum of the three neighboring squares
-                        dp[i][j] += min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]) + 1
-                    # and adding 1
+                        # How this works is - we are looking for the smallest square that can be formed
+                        # by taking the minimum of the three neighboring squares
+                        dp[i][j] += min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1])
+                    # in here we are adding 1 to account for the current cell
                     count += dp[i][j]
 
         return count
